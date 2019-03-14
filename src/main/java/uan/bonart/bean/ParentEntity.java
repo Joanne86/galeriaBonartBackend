@@ -1,4 +1,4 @@
-package uan.lrodriguez52.bean;
+package uan.bonart.bean;
 
 
 import javax.persistence.Access;

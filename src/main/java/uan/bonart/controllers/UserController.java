@@ -1,4 +1,4 @@
-package uan.lrodriguez52.controllers;
+package uan.bonart.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import uan.lrodriguez52.bean.Sesion;
-import uan.lrodriguez52.bean.User;
-import uan.lrodriguez52.exception.ResourceNotFoundException;
-import uan.lrodriguez52.service.IUserService;
+import uan.bonart.bean.Sesion;
+import uan.bonart.bean.User;
+import uan.bonart.exception.ResourceNotFoundException;
+import uan.bonart.service.IUserService;
 
 @RestController
 @RequestMapping({ "/user-api" })

@@ -1,8 +1,8 @@
-package uan.lrodriguez52.service;
+package uan.bonart.service;
 
-import uan.lrodriguez52.bean.Sesion;
-import uan.lrodriguez52.bean.User;
-import uan.lrodriguez52.exception.ResourceNotFoundException;
+import uan.bonart.bean.Sesion;
+import uan.bonart.bean.User;
+import uan.bonart.exception.ResourceNotFoundException;
 
 public interface IUserService {
 	User create(User user);

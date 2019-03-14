@@ -1,13 +1,13 @@
-package uan.lrodriguez52.service.impl;
+package uan.bonart.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import uan.lrodriguez52.bean.Sesion;
-import uan.lrodriguez52.bean.User;
-import uan.lrodriguez52.exception.ResourceNotFoundException;
-import uan.lrodriguez52.model.UserRepository;
-import uan.lrodriguez52.service.IUserService;
+import uan.bonart.bean.Sesion;
+import uan.bonart.bean.User;
+import uan.bonart.model.UserRepository;
+import uan.bonart.exception.ResourceNotFoundException;
+import uan.bonart.service.IUserService;
 
 @Service
 public class UserService implements IUserService {
