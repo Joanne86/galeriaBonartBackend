@@ -12,6 +12,8 @@ public class ParentEntity {
 	private String document;
 	@Column (name = "name")
 	private String name;
+	@Column
+	private String cellphone;
 
 	public String getDocument() {
 		return document;
@@ -27,5 +29,12 @@ public class ParentEntity {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getCellphone() {
+		return cellphone;
+	}
+
+	public void setCellphone(String cellphone) {
+		this.cellphone = cellphone;
 	}
 }

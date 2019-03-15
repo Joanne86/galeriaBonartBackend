@@ -2,6 +2,9 @@ package uan.bonart.service.impl;
 
 import org.springframework.stereotype.Service;
 
+import uan.bonart.entities.Artist;
+import uan.bonart.entities.Artwork;
+import uan.bonart.entities.Room;
 import uan.bonart.entities.Sesion;
 import uan.bonart.exception.ResourceNotFoundException;
 import uan.bonart.service.IUserService;
@@ -9,12 +12,32 @@ import uan.bonart.service.IUserService;
 @Service
 public class UserService implements IUserService {
 	@Override
+	public Iterable<Artist> findAll() {
+		return null;
+	}
+
+	@Override
+	public Iterable<Artwork> findAllArtwork() {
+		return null;
+	}
+
+	@Override
+	public Room create(Room room) {
+		return null;
+	}
+
+	@Override
 	public void deleteById(int id) throws ResourceNotFoundException {
 
 	}
 
 	@Override
 	public Sesion getSesion(String username, String password) {
+		return null;
+	}
+
+	@Override
+	public Artist create(Artist artist) {
 		return null;
 	}
 	/*@Override

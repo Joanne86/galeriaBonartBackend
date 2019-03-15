@@ -14,7 +14,8 @@ create table if not exists artist (
 create table if not exists seller (
 
     document varchar(20) primary key not null,
-    name varchar(45) not null
+    name varchar(45) not null,
+    cellphone varchar(10) not null
 );
 
 create table if not exists session (
@@ -44,6 +45,14 @@ create table if not exists artwork (
     constraint `artist_ibfk_1` foreign key (document_artist) references `artist` (`document`),
     key number_room (number_room),
     constraint `artist_ibfk_2` foreign key (number_room) references `room` (`code`)
+);
+
+create table if not exists customer (
+    document varchar(20) primary key not null,
+    name varchar(45) not null,
+    cellphone varchar(10) not null ,
+    email varchar(45) not null,
+    entry_price float not null
 );
 
 

@@ -10,8 +10,6 @@ public class Artist extends ParentEntity{
     @Column
     private String address;
     @Column
-    private String cellphone;
-    @Column
     private String city;
     @Column
     private String exhibitions;
@@ -24,13 +22,7 @@ public class Artist extends ParentEntity{
         this.address = address;
     }
 
-    public String getCellphone() {
-        return cellphone;
-    }
 
-    public void setCellphone(String cellphone) {
-        this.cellphone = cellphone;
-    }
 
     public String getCity() {
         return city;
