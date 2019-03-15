@@ -2,7 +2,7 @@ package uan.bonart.service.impl;
 
 import org.springframework.stereotype.Service;
 
-import uan.bonart.bean.Sesion;
+import uan.bonart.entities.Sesion;
 import uan.bonart.exception.ResourceNotFoundException;
 import uan.bonart.service.IUserService;
 

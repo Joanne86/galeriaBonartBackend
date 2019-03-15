@@ -1,6 +1,6 @@
 package uan.bonart.service;
 
-import uan.bonart.bean.Sesion;
+import uan.bonart.entities.Sesion;
 import uan.bonart.exception.ResourceNotFoundException;
 
 public interface IUserService {

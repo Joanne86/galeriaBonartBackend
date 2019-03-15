@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import uan.bonart.service.IUserService;
 
 @RestController
-@RequestMapping({ "/user-api" })
+@RequestMapping({ "/gallery-api" })
 @CrossOrigin(origins = "*")
 public class UserController {
 

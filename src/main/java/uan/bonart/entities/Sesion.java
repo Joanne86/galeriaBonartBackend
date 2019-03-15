@@ -1,10 +1,6 @@
-package uan.bonart.bean;
-
-import java.util.List;
+package uan.bonart.entities;
 
 import javax.persistence.*;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table (name="sesion")

@@ -1,4 +1,4 @@
-package uan.bonart.bean;
+package uan.bonart.entities;
 
 
 import javax.persistence.*;
