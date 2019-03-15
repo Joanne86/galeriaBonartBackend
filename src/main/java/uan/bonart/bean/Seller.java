@@ -8,20 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table (name="person")
+@Table (name="seller")
 @Access(AccessType.FIELD)
-public class Person extends ParentEntity{
-	
-	@Id
-	@Column (name="document")
-	private int document;
-	
-	
-	public int getDocument() {
-		return document;
-	}
-	public void setDocument(int document) {
-		this.document = document;
-	}
+public class Seller extends ParentEntity{
+
 
 }

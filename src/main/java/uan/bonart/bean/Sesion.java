@@ -2,14 +2,7 @@ package uan.bonart.bean;
 
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -17,26 +10,18 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table (name="sesion")
 public class Sesion {
 	@Id
-	@Column (name="idsesion")
+	@Column (name="id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Column (name="username")
 	private String user;
-	@Column
+	@Column (name="password")
 	private String password;
-	
-/*	@OneToOne
-	@JoinColumn(name = "dperson", referencedColumnName="document")	
-	protected Person person;*/
-	
-	/*@OneToMany(mappedBy = "sesion", fetch=FetchType.EAGER)
-	private List<User> users;
-	*/
-	@JsonIgnore
-	@OneToMany
-	@JoinColumn (name="idsesion")
-	private List<User> users;
-	
+
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "document_seller", referencedColumnName = "document" )
+	private Seller seller;
+
 	public int getId() {
 		return id;
 	}
@@ -55,11 +40,12 @@ public class Sesion {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	/*public Person getPerson() {
-		return person;
+
+	public Seller getSeller() {
+		return seller;
 	}
-	public void setPerson(Person person) {
-		this.person = person;
-	} <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>*/
-	
-}   
+
+	public void setSeller(Seller seller) {
+		this.seller = seller;
+	}
+}

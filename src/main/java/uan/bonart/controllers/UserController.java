@@ -13,9 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import uan.bonart.bean.Sesion;
-import uan.bonart.bean.User;
-import uan.bonart.exception.ResourceNotFoundException;
 import uan.bonart.service.IUserService;
 
 @RestController
@@ -31,16 +28,16 @@ public class UserController {
 		return new ResponseEntity<>("OK", HttpStatus.OK);
 	}
 
-	@PostMapping("/create")
+	/*@PostMapping("/create")
 	public ResponseEntity<User> create(@RequestBody User user) {
 		return new ResponseEntity<>(userService.create(user), HttpStatus.OK);
 	}
 
-	@GetMapping("/findById")
+	/*@GetMapping("/findById")
 	public ResponseEntity<User> findOne(@RequestParam int id) throws ResourceNotFoundException {
 		return new ResponseEntity<>(userService.findById(id), HttpStatus.OK);
-	}
-	@GetMapping("/findAllByIdsesion")
+	}*/
+	/*@GetMapping("/findAllByIdsesion")
 	public ResponseEntity<Iterable<User>> findALLByIdsesion(@RequestParam int idsesion) throws ResourceNotFoundException {
 		return new ResponseEntity<>(userService.findAllByIdsesion(idsesion), HttpStatus.OK);
 	}
@@ -49,18 +46,18 @@ public class UserController {
 		return new ResponseEntity<>(userService.getSesion(username, password), HttpStatus.OK);
 	}
 
-	@PutMapping("/update")
+	/*@PutMapping("/update")
 	public ResponseEntity<User> update(@RequestBody User user) throws ResourceNotFoundException {
 		return new ResponseEntity<>(userService.update(user), HttpStatus.OK);
-	}
+	}*/
 
-	@DeleteMapping("/delete")
+	/*@DeleteMapping("/delete")
 	public ResponseEntity<Object> delete(@RequestBody User user) throws ResourceNotFoundException {
 		userService.delete(user);
 		return new ResponseEntity<>(HttpStatus.OK);
-	}
+	}*/
 
-	@DeleteMapping("/deleteById")
+	/*@DeleteMapping("/deleteById")
 	public ResponseEntity<Object> delete(@RequestParam int id) throws ResourceNotFoundException {
 		userService.deleteById(id);
 		return new ResponseEntity<>(HttpStatus.OK);
@@ -69,5 +66,5 @@ public class UserController {
 	@GetMapping("/findAll")
 	public ResponseEntity<Iterable<User>> findAll() {
 		return new ResponseEntity<>(userService.findAll(), HttpStatus.OK);
-	}
+	}*/
 }

@@ -35,34 +35,16 @@ create table if not exists room (
 );
 
 create table if not exists artwork (
-
     inscription_code int(3) primary key auto_increment not null,
     artwork_type varchar(40) not null,
     price float,
-    artist_document varchar (10) not null,
+    document_artist varchar (10) not null,
     number_room int (3) not null,
-    key artist_document (artist_document),
-    constraint `artist_ibfk_1` foreign key (artist_document) references `artist` (`document`),
+    key document_artist (document_artist),
+    constraint `artist_ibfk_1` foreign key (document_artist) references `artist` (`document`),
     key number_room (number_room),
-    constraint `artist_ibfk_2` foreign key (number_room) references `room` (`number`)
+    constraint `artist_ibfk_2` foreign key (number_room) references `room` (`code`)
 );
 
-create table if not exists customer (
 
-    document varchar(20) primary key not null,
-    name varchar(45) not null,
-    cellphone varchar(10) not null,
-    email varchar(45) not null,
-    entry_cost float not null
-);
-
-create table if not exists sales (
-
-    code_artwork int (3) not null,
-    document_seller int (20) not null,
-    KEY document_seller (document_seller),
-    CONSTRAINT `sales_ibfk_1` FOREIGN KEY (document_seller) REFERENCES `seller` (`document`),
-    KEY code_artwork (code_artwork),
-    CONSTRAINT `sales_ibfk_2` FOREIGN KEY (code_artwork) REFERENCES `artwork` (`inscription_code`)
-);
 

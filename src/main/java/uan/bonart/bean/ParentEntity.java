@@ -1,39 +1,31 @@
 package uan.bonart.bean;
 
 
-import javax.persistence.Access;
-import javax.persistence.AccessType;
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 
 @MappedSuperclass
 @Access(AccessType.FIELD)
 public class ParentEntity {
 
-	//private static final long serialVersionUID = 6849424704040740410L; implements Serializable
-	@Column
+	@Id
+	@Column (name = "document")
+	private String document;
+	@Column (name = "name")
 	private String name;
-	@Column
-	private String phone;
-	@Column
-	private String email;
+
+	public String getDocument() {
+		return document;
+	}
+
+	public void setDocument(String document) {
+		this.document = document;
+	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getPhone() {
-		return phone;
-	}
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 }

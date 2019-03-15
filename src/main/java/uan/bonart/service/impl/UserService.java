@@ -1,18 +1,43 @@
 package uan.bonart.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import uan.bonart.bean.Sesion;
-import uan.bonart.bean.User;
-import uan.bonart.model.UserRepository;
 import uan.bonart.exception.ResourceNotFoundException;
 import uan.bonart.service.IUserService;
 
 @Service
 public class UserService implements IUserService {
+	@Override
+	public void deleteById(int id) throws ResourceNotFoundException {
 
-	@Autowired
+	}
+
+	@Override
+	public Sesion getSesion(String username, String password) {
+		return null;
+	}
+	/*@Override
+	public void deleteById(int id) throws ResourceNotFoundException {
+
+	}
+
+	@Override
+	public Iterable<User> findAllByIdsesion(int idsesion) {
+		return null;
+	}
+
+	@Override
+	public Iterable<User> findAll() {
+		return null;
+	}
+
+	@Override
+	public Sesion getSesion(String username, String password) {
+		return null;
+	}
+
+	/*@Autowired
 	private UserRepository repository; // lo inyecta para no hacer new
 
 	@Override
@@ -75,6 +100,6 @@ public class UserService implements IUserService {
 		return repository.getSesion(username, password);
 		
 		
-	}
+	}*/
 
 }
