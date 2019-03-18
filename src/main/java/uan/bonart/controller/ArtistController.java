@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 import uan.bonart.entities.Artist;
 import uan.bonart.service.IArtistService;
 
+@CrossOrigin(origins = "*")
 @RestController
-@RequestMapping( "/gallery-api" )
-@CrossOrigin(origins = "**")
+
 public class ArtistController {
 
 	@Autowired

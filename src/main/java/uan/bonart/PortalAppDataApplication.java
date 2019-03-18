@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-//@ComponentScan (basePackages = { "uan.bonart."})
+@ComponentScan (basePackages = { "uan.bonart"})
 
 public class PortalAppDataApplication {
 
