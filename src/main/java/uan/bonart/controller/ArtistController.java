@@ -16,6 +16,7 @@ import uan.bonart.service.IArtistService;
 
 @CrossOrigin(origins = "*")
 @RestController
+@RequestMapping( "/artist-api" )
 
 public class ArtistController {
 
