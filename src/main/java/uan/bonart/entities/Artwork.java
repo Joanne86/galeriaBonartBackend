@@ -8,6 +8,7 @@ import javax.persistence.*;
 public class Artwork {
     @Id
     @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int inscription_code;
     @Column
     private String artwork_type;

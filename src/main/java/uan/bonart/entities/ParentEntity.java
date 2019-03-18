@@ -12,7 +12,7 @@ public class ParentEntity {
 	private String document;
 	@Column (name = "name")
 	private String name;
-	@Column
+	@Column (name="cellphone")
 	private String cellphone;
 
 	public String getDocument() {
