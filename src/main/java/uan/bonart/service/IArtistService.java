@@ -4,4 +4,6 @@ import uan.bonart.entities.Artist;
 
 public interface IArtistService {
 	Artist create (Artist artist);
+
+	Iterable<Artist> findAll();
 }

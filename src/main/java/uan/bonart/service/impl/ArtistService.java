@@ -14,5 +14,10 @@ public class ArtistService implements IArtistService {
 	public Artist create(Artist artist) {		
 		return artistRepository.save(artist);
 	}
+	
+	@Override
+	public Iterable<Artist> findAll() {
+		return artistRepository.findAll();
+	}
 
 }

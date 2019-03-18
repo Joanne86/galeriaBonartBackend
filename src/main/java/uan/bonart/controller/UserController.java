@@ -1,4 +1,4 @@
-package uan.bonart.controllers;
+package uan.bonart.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,18 +15,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import uan.bonart.service.IUserService;
 
-@RestController
-@RequestMapping({ "/gallery-api" })
-@CrossOrigin(origins = "*")
+//@RestController
+//@RequestMapping({ "/gallery-api" })
+//@CrossOrigin(origins = "*")
 public class UserController {
 
 	@Autowired
 	private IUserService userService;
-
-	@GetMapping(value = "/health")
-	public ResponseEntity<String> health() {
-		return new ResponseEntity<>("OK", HttpStatus.OK);
-	}
+//
+//	@GetMapping(value = "/health")
+//	public ResponseEntity<String> health() {
+//		return new ResponseEntity<>("OK", HttpStatus.OK);
+//	}
 
 	/*@PostMapping("/create")
 	public ResponseEntity<User> create(@RequestBody User user) {
