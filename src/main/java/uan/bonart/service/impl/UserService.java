@@ -76,9 +76,6 @@ public class UserService implements IUserService {
 		throw new ResourceNotFoundException("User", "id", Integer.toString(user.getId()));
 
 	}
-
-	// <app-menu></app-menu>
-	// <router-outlet></router-outlet>
 	@Override
 	public void deleteById(int id) throws ResourceNotFoundException {
 		if (repository.findById(id).isPresent()) {
