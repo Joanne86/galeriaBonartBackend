@@ -13,9 +13,8 @@ public class ArtworkService implements IArtworkService {
     private ArtworkRepository artworkRepository;
 
 	@Override
-	public Artwork create(Artwork artist) {
-		// TODO Auto-generated method stub
-		return null;
+	public Artwork create(Artwork artwork) {
+		return artworkRepository.save(artwork);
 	}
 
 	@Override

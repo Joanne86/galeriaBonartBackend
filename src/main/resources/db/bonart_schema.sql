@@ -1,6 +1,6 @@
-drop schema if exists bonart;
-create schema bonart;
-use bonart;
+drop schema if exists galerybonart;
+create schema galerybonart;
+use galerybonart;
 
 create table if not exists artist (
 	document varchar (10) primary key not null,
