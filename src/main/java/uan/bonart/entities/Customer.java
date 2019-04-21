@@ -12,6 +12,8 @@ public class Customer extends ParentEntity{
     private String email;
     @Column
     private float entry_price;//tarifa cambia si es menor de edad
+    @Column
+    private boolean flag;
 
     public String getEmail() {
         return email;
@@ -27,5 +29,13 @@ public class Customer extends ParentEntity{
 
     public void setEntry_price(float entry_price) {
         this.entry_price = entry_price;
+    }
+
+    public boolean isFlag() {
+        return flag;
+    }
+
+    public void setFlag(boolean flag) {
+        this.flag = flag;
     }
 }
