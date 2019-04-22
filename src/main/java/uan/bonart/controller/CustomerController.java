@@ -20,7 +20,6 @@ public class CustomerController {
     }
     @PostMapping("/create")
     public ResponseEntity<Customer> create(@RequestBody Customer customer) {
-        System.out.println("etra aqui");
         return new ResponseEntity<>(customerService.create(customer), HttpStatus.OK);
     }
 }

@@ -19,8 +19,8 @@ public class ArtworkService implements IArtworkService {
 
 	@Override
 	public Iterable<Artwork> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+
+		return artworkRepository.findAll();
 	}
 
 }
