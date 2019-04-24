@@ -32,7 +32,6 @@ public class ArtistController {
 	}
 	@PostMapping("/create")
 	public ResponseEntity<Artist> create(@RequestBody Artist artist) {
-		System.out.println("etra aqui");	
 		return new ResponseEntity<>(artistService.create(artist), HttpStatus.OK);
 	}
 }

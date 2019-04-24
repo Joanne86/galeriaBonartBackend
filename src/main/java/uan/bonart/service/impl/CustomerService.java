@@ -14,14 +14,14 @@ public class CustomerService implements ICustomerService {
 
 	@Override
 	public Customer create(Customer customer) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return customerRepository.save(customer);
 	}
 
 	@Override
 	public Iterable<Customer> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+
+		return customerRepository.findAll();
 	}
 
 }
