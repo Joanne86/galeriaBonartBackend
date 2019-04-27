@@ -5,9 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uan.bonart.entities.Room;
-import uan.bonart.entities.Sale;
 import uan.bonart.service.IRoomService;
-import uan.bonart.service.ISaleService;
 
 @CrossOrigin(origins = "*")
 @RestController
