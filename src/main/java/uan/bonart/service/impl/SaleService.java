@@ -11,19 +11,19 @@ import java.util.logging.Logger;
 
 @Service
 public class SaleService implements ISaleService {
-    private static final Logger logger = (Logger) LoggerFactory.getLogger(SaleService.class);
+
     @Autowired
     private SaleRepository saleRepository;
 
     @Override
     public Sale create(Sale sale) {
-        logger.info("Creando venta ");
+
         return saleRepository.save(sale);
     }
 
     @Override
     public Iterable<Sale> findAll() {
-        logger.info("Cargando todas las ventas ");
+
         return saleRepository.findAll();
     }
 }
