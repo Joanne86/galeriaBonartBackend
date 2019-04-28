@@ -11,16 +11,9 @@ import uan.bonart.service.ISesionService;
 public class SesionService implements ISesionService {
     @Autowired
     SesionRepository sesionRepository;
-    //Sesion sesion;
-
-    LoginDto loginDto;
 
     @Override
     public Sesion getSesion(String username, String password) {
          return sesionRepository.getSesion(username,password);
-        /* loginDto = new LoginDto(sesion.getSeller().getDocument(),
-                 sesion.getSeller().getName(),sesion.getSeller().getCellphone(),
-                 sesion.getUser(), sesion.getPassword());
-         return loginDto;*/
     }
 }
