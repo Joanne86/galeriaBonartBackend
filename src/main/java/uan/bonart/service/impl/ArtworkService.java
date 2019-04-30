@@ -23,4 +23,9 @@ public class ArtworkService implements IArtworkService {
 		return artworkRepository.findAll();
 	}
 
+	@Override
+	public Artwork findByName(String name) {
+		return artworkRepository.findByAndArtwork_type(name);
+	}
+
 }

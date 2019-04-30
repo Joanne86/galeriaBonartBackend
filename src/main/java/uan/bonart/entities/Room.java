@@ -10,7 +10,8 @@ public class Room {
     private int code ;
     @Column
     private String name;
-    @ManyToOne(optional = false)
+    //(optional = true)
+    @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "document_seller", referencedColumnName = "document" )
     private Seller seller;
 

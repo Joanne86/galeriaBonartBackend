@@ -7,4 +7,6 @@ public interface IArtworkService {
     Artwork create (Artwork artist);
 
     Iterable<Artwork> findAll();
+
+    Artwork findByName (String name);
 }

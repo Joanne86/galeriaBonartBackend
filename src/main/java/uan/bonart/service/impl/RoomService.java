@@ -14,6 +14,9 @@ public class RoomService implements IRoomService {
 
     @Override
     public Room create(Room room) {
+        room.getCode();
+        room.getName();
+      //  room.getSeller().getDocument();
         return roomRepository.save(room);
     }
 

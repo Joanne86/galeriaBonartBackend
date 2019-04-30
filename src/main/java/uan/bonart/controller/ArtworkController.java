@@ -20,10 +20,14 @@ public class ArtworkController {
     public ResponseEntity<Iterable<Artwork>> findAll() {
         return new ResponseEntity<>(artworkService.findAll(), HttpStatus.OK);
     }
+    @GetMapping("/findByName")
+    public ResponseEntity<Artwork> findByName(@RequestParam String name) {
+        return new ResponseEntity<>(artworkService.findByName(name), HttpStatus.OK);
+    }
     @PostMapping("/create")
     public ResponseEntity<Artwork> create(@RequestBody Artwork artwork) {
-        System.out.println("etra aqui");
         return new ResponseEntity<>(artworkService.create(artwork), HttpStatus.OK);
     }
+
 
 }
