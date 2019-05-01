@@ -25,7 +25,12 @@ public class ArtworkService implements IArtworkService {
 
 	@Override
 	public Artwork findByName(String name) {
-		return artworkRepository.findByAndArtwork_type(name);
+		return artworkRepository.findByName(name);
+	}
+
+	@Override
+	public Iterable<Artwork> findByRoomCode(Integer code) {
+		return artworkRepository.findByRoomCode(code);
 	}
 
 }

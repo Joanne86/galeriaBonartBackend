@@ -9,4 +9,6 @@ public interface IArtworkService {
     Iterable<Artwork> findAll();
 
     Artwork findByName (String name);
+
+    Iterable<Artwork> findByRoomCode(Integer code);
 }
