@@ -33,26 +33,17 @@ public class ArtworkController {
         return new ResponseEntity<>(artworkService.create(artwork), HttpStatus.OK);
     }
     @GetMapping("/findByRoomCode")
-    public ResponseEntity<Iterable<ArtworkDto>> findByRoomCode(@RequestParam Integer code){
-        Iterable<Artwork> artwork = artworkService.findByRoomCode(code);
-        ArrayList<ArtworkDto> artworkDto = new ArrayList<ArtworkDto>();
-        int j=0;
-        for ( Artwork a: artwork){j++;}
-        for(int i=0; i<j; i++ ){
-            ArtworkDto art=new ArtworkDto();
-            artworkDto.add(art);
-        }
-        for ( Artwork a: artwork){
-           for(ArtworkDto art: artworkDto){
-               art.setDocument_artist( a.getArtist().getDocument());
-               art.setInscription_code(a.getInscription_code());
-               art.setName(a.getName());
-               art.setNumber_room(a.getRoom().getCode());
-               art.setPrice(a.getPrice());
-        }
-        }
-        return new ResponseEntity<>((Iterable)artworkDto, HttpStatus.OK);
+    public ResponseEntity<Iterable<Artwork>> findByRoomCode(@RequestParam Integer code){
+        return new ResponseEntity<>( artworkService.findByRoomCode(code), HttpStatus.OK);
     }
+    @DeleteMapping("/delete")
+    public ResponseEntity<Object> delete(@RequestParam int code) {
+        artworkService.deleteByInscription_code(code);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+
+   // <--style="margin-right: 20px;"
 
 
 }

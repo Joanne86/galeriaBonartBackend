@@ -7,5 +7,5 @@ public interface IRoomService {
     Room create (Room room);
 
     Iterable<Room> findAll();
-    Integer getCode(String document);
+    Room getCode(String document);
 }

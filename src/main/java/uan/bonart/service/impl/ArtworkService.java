@@ -33,4 +33,12 @@ public class ArtworkService implements IArtworkService {
 		return artworkRepository.findByRoomCode(code);
 	}
 
+	@Override
+	public void deleteByInscription_code(int code) {
+		//	if (artworkRepository.findByInscription_code(code).isPresent()) {
+			artworkRepository.deleteByInscription_code(code);
+		//}
+		//throw new ResourceNotFoundException("User", "id", Integer.toString(artwork.getInscription_code()));
+	}
+
 }

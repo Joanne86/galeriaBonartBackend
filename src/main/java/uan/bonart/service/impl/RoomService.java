@@ -24,7 +24,7 @@ public class RoomService implements IRoomService {
     }
 
     @Override
-    public Integer getCode(String document){
+    public Room getCode(String document){
         return roomRepository.getCode(document);
     }
 }

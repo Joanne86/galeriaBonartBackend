@@ -20,7 +20,7 @@ public class RoomController {
         return new ResponseEntity<>(roomService.findAll(), HttpStatus.OK);
     }
     @GetMapping("/getCode")
-    public ResponseEntity<Integer> getCode(@RequestParam String document) {
+    public ResponseEntity<Room> getCode(@RequestParam String document) {
         return new ResponseEntity<>(roomService.getCode(document), HttpStatus.OK);
     }
     @PostMapping("/create")

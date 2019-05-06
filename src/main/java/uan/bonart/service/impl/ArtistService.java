@@ -22,4 +22,6 @@ public class ArtistService implements IArtistService {
 		return artistRepository.findAll();
 	}
 
+
+
 }

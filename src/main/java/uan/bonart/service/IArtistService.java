@@ -6,4 +6,5 @@ public interface IArtistService {
 	Artist create (Artist artist);
 
 	Iterable<Artist> findAll();
+
 }
