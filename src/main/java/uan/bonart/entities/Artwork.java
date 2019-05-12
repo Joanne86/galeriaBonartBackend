@@ -7,17 +7,17 @@ import javax.persistence.*;
 @Table(name="artwork")
 public class Artwork {
     @Id
-    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private int inscription_code;
     @Column
-    private String artwork_type;
+    private String name;
     @Column
     private float price;
-    @ManyToOne(optional = false)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "document_artist", referencedColumnName = "document" )
     private Artist artist;
-    @ManyToOne(optional = false)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "number_room", referencedColumnName = "code" )
     private Room room;
 
@@ -29,12 +29,12 @@ public class Artwork {
         this.inscription_code = inscription_code;
     }
 
-    public String getArtwork_type() {
-        return artwork_type;
+    public String getName() {
+        return name;
     }
 
-    public void setArtwork_type(String artwork_type) {
-        this.artwork_type = artwork_type;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public float getPrice() {

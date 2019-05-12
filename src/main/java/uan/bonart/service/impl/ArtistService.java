@@ -7,6 +7,8 @@ import uan.bonart.entities.Artist;
 import uan.bonart.repositories.ArtistRepository;
 import uan.bonart.service.IArtistService;
 
+import java.util.Optional;
+
 @Service
 public class ArtistService implements IArtistService {
     @Autowired
@@ -21,5 +23,15 @@ public class ArtistService implements IArtistService {
 	public Iterable<Artist> findAll() {
 		return artistRepository.findAll();
 	}
+
+	@Override
+	public boolean findByDocument(String document) {
+		if(artistRepository.findByDocument(document).isPresent()){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
 
 }
