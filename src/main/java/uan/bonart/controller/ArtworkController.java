@@ -37,8 +37,8 @@ public class ArtworkController {
         return new ResponseEntity<>( artworkService.findByRoomCode(code), HttpStatus.OK);
     }
     @DeleteMapping("/delete")
-    public ResponseEntity<Object> delete(@RequestParam int code) {
-        artworkService.deleteByInscription_code(code);
+    public ResponseEntity<Artwork> delete(@RequestParam Integer inscription_code) {
+        artworkService.deleteByInscription_code(inscription_code);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

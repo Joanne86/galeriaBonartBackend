@@ -2,6 +2,8 @@ package uan.bonart.service;
 
 import uan.bonart.entities.Artwork;
 
+import java.util.Optional;
+
 public interface IArtworkService {
 
     Artwork create (Artwork artwork);
@@ -13,4 +15,6 @@ public interface IArtworkService {
     Iterable<Artwork> findByRoomCode(Integer code);
 
     void deleteByInscription_code(int code);
+
+    Optional<Artwork> findByInscription_code(int inscription_code);
 }
