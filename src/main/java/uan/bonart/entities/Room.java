@@ -5,12 +5,13 @@ import javax.persistence.*;
 @Entity
 @Table (name = "room")
 public class Room {
+
     @Id
     @Column (name="code")
     private int code ;
     @Column
     private String name;
-    @ManyToOne(optional = false)
+    @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn(name = "document_seller", referencedColumnName = "document" )
     private Seller seller;
 

@@ -29,7 +29,7 @@ create table if not exists sesion (
 
 create table if not exists room (
     code int(3) primary key not null,
-    name varchar (15) not null,
+    name varchar (50) not null,
     document_seller varchar (10) not null,
     KEY document_seller (document_seller),
     CONSTRAINT `room_ibfk_1` FOREIGN KEY (document_seller) REFERENCES `seller` (`document`)
@@ -37,7 +37,7 @@ create table if not exists room (
 
 create table if not exists artwork (
     inscription_code int(3) primary key auto_increment not null,
-    artwork_type varchar(40) not null,
+    name varchar(40) not null,
     price float,
     document_artist varchar (10) not null,
     number_room int (3) not null,

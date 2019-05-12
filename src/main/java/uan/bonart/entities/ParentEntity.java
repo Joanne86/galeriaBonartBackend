@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class ParentEntity {
 
 	@Id
-	@Column (name = "document")
+	@Column (name = "document", nullable=false)
 	private String document;
 	@Column (name = "name")
 	private String name;
