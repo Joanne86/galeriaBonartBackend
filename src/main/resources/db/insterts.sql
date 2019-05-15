@@ -27,4 +27,11 @@ insert into artwork values (7, 'marilyn monroe en tela', 2800000, '1014293634', 
 insert into artwork values (8, 'luna llena lana', 3000000, '1234567890', 3);
 insert into artwork values (9, 'el hombre hormiga', 0, '1014293634', 3);
 
+insert into typecustomer values (1, 'ADULTO', 20000);
+insert into typecustomer values (2, 'MENOR DE EDAD', 10000);
+
+
+insert into customer values ('1013567894', 'Maria Ramirez Pinilla', '8210334', 'laura@gmail.com', 1, 1);
+insert into customer values ('3434214686', 'William Torres Aguirre', '3123456534', 'william@gmail.com', 1, 2);
+insert into customer values ('2304565435', 'Santiago Hernandez Mesa', '3007310769', 'santiago@gmail.com', 1, 2);
 
