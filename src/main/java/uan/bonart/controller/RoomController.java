@@ -8,6 +8,8 @@ import uan.bonart.entities.Room;
 import uan.bonart.entities.Seller;
 import uan.bonart.service.IRoomService;
 
+import java.util.List;
+
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping( "/room-api" )
@@ -16,7 +18,7 @@ public class RoomController {
     IRoomService roomService;
 
     @GetMapping("/findAll")
-    public ResponseEntity<Iterable<Room>> findAll() {
+    public ResponseEntity<List<Room>> findAll() {
         return new ResponseEntity<>(roomService.findAll(), HttpStatus.OK);
     }
     @GetMapping("/getCode")

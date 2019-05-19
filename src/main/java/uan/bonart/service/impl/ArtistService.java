@@ -23,5 +23,6 @@ public class ArtistService implements IArtistService {
 		return artistRepository.findAll(); }
 	@Override
 	public boolean findByDocument(String document) {
-		return(artistRepository.findByDocument(document).isPresent()); }
+		return(artistRepository.findByDocument(document).isPresent());
+	}
 }

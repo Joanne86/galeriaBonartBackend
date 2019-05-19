@@ -2,11 +2,13 @@ package uan.bonart.service;
 
 import uan.bonart.entities.ArtworkSaled;
 
+import java.util.List;
+
 public interface IArtworkSaledService {
 
     ArtworkSaled create (ArtworkSaled artworkSaled);
 
-    Iterable<ArtworkSaled> findAllByNumber_room(int number_room);
+    List<ArtworkSaled> findAllByNumber_room(int number_room);
 
     float getTotal(int number_room);
 

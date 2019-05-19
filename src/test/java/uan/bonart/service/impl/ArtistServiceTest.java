@@ -37,6 +37,7 @@ public class ArtistServiceTest {
         when(artistService.create(artistMock)).thenReturn(artistMock);
         when(artistRepository.findAll()).thenReturn(artistServiceTest());
         when(artistRepository.findByDocument(anyString())).thenReturn(Optional.of(artistMock));
+
     }
 
     @Test
@@ -51,7 +52,7 @@ public class ArtistServiceTest {
     }
 
     @Test
-    public void testFindByDocumentTrue() throws Exception {
+    public void testFindByDocument() throws Exception {
         artistService.findByDocument(anyString());
     }
 

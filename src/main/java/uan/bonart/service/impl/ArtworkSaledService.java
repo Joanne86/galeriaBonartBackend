@@ -6,6 +6,8 @@ import uan.bonart.entities.ArtworkSaled;
 import uan.bonart.repositories.ArtworkSaledRepository;
 import uan.bonart.service.IArtworkSaledService;
 
+import java.util.List;
+
 @Service
 public class ArtworkSaledService implements IArtworkSaledService {
 
@@ -19,7 +21,7 @@ public class ArtworkSaledService implements IArtworkSaledService {
     }
 
     @Override
-    public Iterable<ArtworkSaled> findAllByNumber_room(int number_room) {
+    public List<ArtworkSaled> findAllByNumber_room(int number_room) {
         return artworkSaledRepository.findAllByNumber_room(number_room);
     }
 

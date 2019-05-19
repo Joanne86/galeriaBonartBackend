@@ -19,8 +19,6 @@ public class SesionController {
 
     @GetMapping("/getSesion")
     public ResponseEntity<LoginDto> getSesion(@RequestParam String username, @RequestParam String password) throws ResourceNotFoundException {
-
-
         Sesion sesion = sesionService.getSesion(username, password);
         if(sesion==null){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
