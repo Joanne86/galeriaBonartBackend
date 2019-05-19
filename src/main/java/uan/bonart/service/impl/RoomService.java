@@ -6,6 +6,8 @@ import uan.bonart.entities.Room;
 import uan.bonart.repositories.RoomRepository;
 import uan.bonart.service.IRoomService;
 
+import java.util.List;
+
 @Service
 public class RoomService implements IRoomService {
 
@@ -18,7 +20,12 @@ public class RoomService implements IRoomService {
     }
 
     @Override
-    public Iterable<Room> findAll() {
-        return roomRepository.findAll();
+    public List<Room> findAll() {
+        return (List<Room>) roomRepository.findAll();
+    }
+
+    @Override
+    public Room getCode(String document){
+        return roomRepository.getCode(document);
     }
 }

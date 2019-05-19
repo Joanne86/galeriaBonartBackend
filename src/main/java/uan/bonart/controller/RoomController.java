@@ -5,7 +5,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uan.bonart.entities.Room;
+import uan.bonart.entities.Seller;
 import uan.bonart.service.IRoomService;
+
+import java.util.List;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -15,8 +18,12 @@ public class RoomController {
     IRoomService roomService;
 
     @GetMapping("/findAll")
-    public ResponseEntity<Iterable<Room>> findAll() {
+    public ResponseEntity<List<Room>> findAll() {
         return new ResponseEntity<>(roomService.findAll(), HttpStatus.OK);
+    }
+    @GetMapping("/getCode")
+    public ResponseEntity<Room> getCode(@RequestParam String document) {
+        return new ResponseEntity<>(roomService.getCode(document), HttpStatus.OK);
     }
     @PostMapping("/create")
     public ResponseEntity<Room> create(@RequestBody Room room) {

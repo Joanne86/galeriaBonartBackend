@@ -29,7 +29,7 @@ create table if not exists sesion (
 
 create table if not exists room (
     code int(3) primary key not null,
-    name varchar (15) not null,
+    name varchar (50) not null,
     document_seller varchar (10) not null,
     KEY document_seller (document_seller),
     CONSTRAINT `room_ibfk_1` FOREIGN KEY (document_seller) REFERENCES `seller` (`document`)
@@ -37,7 +37,7 @@ create table if not exists room (
 
 create table if not exists artwork (
     inscription_code int(3) primary key auto_increment not null,
-    artwork_type varchar(40) not null,
+    name varchar(40) not null,
     price float,
     document_artist varchar (10) not null,
     number_room int (3) not null,
@@ -47,13 +47,29 @@ create table if not exists artwork (
     constraint `artwork_ibfk_2` foreign key (number_room) references `room` (`code`)
 );
 
+create table if not exists typecustomer (
+	codetype int(3) primary key not null,
+	typec varchar (15) not null,
+    price float not null
+);
+
+
 create table if not exists customer (
     document varchar(10) primary key not null,
     name varchar(45) not null,
     cellphone varchar(10) not null ,
     email varchar(45) not null,
-    entry_price float not null,
-    flag boolean not null
+    flag int not null,
+	codetype int(3) not null,
+	key codetype (codetype),
+    constraint `customer_ibfk_1` foreign key (codetype) references `typecustomer` (`codetype`)
+);
+create table if not exists artworksaled (
+    inscription_code int(3) primary key not null,
+    name varchar(40) not null,
+    price float,
+    artist varchar (50) not null,
+    number_room int (3) not null
 );
 
 create table if not exists sale (
@@ -63,7 +79,7 @@ create table if not exists sale (
     key document_customer (document_customer),
     constraint `sale_ibfk_1` foreign key (document_customer) references `customer` (`document`),
     key artwork_code (artwork_code),
-    constraint `sale_ibfk_2` foreign key (artwork_code) references `artwork` (`inscription_code`)
+    constraint `sale_ibfk_2` foreign key (artwork_code) references `artworksaled` (`inscription_code`)
 );
 
 

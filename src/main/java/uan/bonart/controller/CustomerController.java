@@ -9,6 +9,8 @@ import uan.bonart.entities.Customer;
 import uan.bonart.exception.ResourceNotFoundException;
 import uan.bonart.service.ICustomerService;
 
+import java.util.List;
+
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping( "/customer-api" )
@@ -17,13 +19,18 @@ public class CustomerController {
     ICustomerService customerService;
 
     @GetMapping("/findAll")
-    public ResponseEntity<Iterable<Customer>> findAll() {
-        return new ResponseEntity<>(customerService.findAll(), HttpStatus.OK);
+    public ResponseEntity<List<Customer>> findAll() {
+        return new ResponseEntity(customerService.findAll(), HttpStatus.OK);
+    }
+    @GetMapping("/findByDocument")
+    public boolean findByDocument(@RequestParam String document) {
+        return (customerService.findByDocument(document));
     }
     @PostMapping("/create")
     public ResponseEntity<Customer> create(@RequestBody Customer customer) {
         return new ResponseEntity<>(customerService.create(customer), HttpStatus.OK);
     }
+<<<<<<< HEAD
     @DeleteMapping("/delete")
 	public ResponseEntity<Customer> delete(@RequestBody Customer customer) throws ResourceNotFoundException {
 		customerService.delete(customer);
@@ -45,4 +52,7 @@ public class CustomerController {
 	public ResponseEntity<Customer> findOne(@RequestParam String id) throws ResourceNotFoundException {
 		return new ResponseEntity<>(customerService.findById(id), HttpStatus.OK);
 	}
+=======
+
+>>>>>>> refs/remotes/origin/dev_john
 }

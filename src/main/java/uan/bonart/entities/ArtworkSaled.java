@@ -1,25 +1,21 @@
 package uan.bonart.entities;
 
-
 import javax.persistence.*;
 
 @Entity
-@Table(name="artwork")
-public class Artwork {
+@Table(name="artworksaled")
+public class ArtworkSaled {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private int inscription_code;
     @Column
     private String name;
     @Column
     private float price;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "document_artist", referencedColumnName = "document" )
-    private Artist artist;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "number_room", referencedColumnName = "code" )
-    private Room room;
+    @Column (name= "artist")
+    private String artist;
+    @Column (name = "number_room")
+    private int number_room;
 
     public int getInscription_code() {
         return inscription_code;
@@ -45,19 +41,19 @@ public class Artwork {
         this.price = price;
     }
 
-    public Artist getArtist() {
+    public String getArtist() {
         return artist;
     }
 
-    public void setArtist(Artist artist) {
+    public void setArtist(String artist) {
         this.artist = artist;
     }
 
-    public Room getRoom() {
-        return room;
+    public int getNumber_room() {
+        return number_room;
     }
 
-    public void setRoom(Room room) {
-        this.room = room;
+    public void setNumber_room(int number_room) {
+        this.number_room = number_room;
     }
 }

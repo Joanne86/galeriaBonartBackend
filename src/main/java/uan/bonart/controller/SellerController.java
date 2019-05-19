@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import uan.bonart.entities.Seller;
 import uan.bonart.service.ISellerService;
 
+import java.util.List;
+
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping( "/seller-api" )
@@ -15,7 +17,7 @@ public class SellerController {
     ISellerService sellerService;
 
     @GetMapping("/findAll")
-    public ResponseEntity<Iterable<Seller>> findAll() {
+    public ResponseEntity<List<Seller>> findAll() {
         return new ResponseEntity<>(sellerService.findAll(), HttpStatus.OK);
     }
     @PostMapping("/create")
