@@ -7,7 +7,8 @@ import uan.bonart.entities.Customer;
 import uan.bonart.repositories.CustomerRepository;
 import uan.bonart.service.ICustomerService;
 
-import java.util.Optional;
+import java.util.List;
+
 
 @Service
 public class CustomerService implements ICustomerService {
@@ -16,14 +17,12 @@ public class CustomerService implements ICustomerService {
 
 	@Override
 	public Customer create(Customer customer) {
-
 		return customerRepository.save(customer);
 	}
 
 	@Override
-	public Iterable<Customer> findAll() {
-
-		return customerRepository.findAll();
+	public List<Customer> findAll() {
+		return (List<Customer>) customerRepository.findAll();
 	}
 
 	@Override

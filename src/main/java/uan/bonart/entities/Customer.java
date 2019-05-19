@@ -9,7 +9,7 @@ public class Customer extends ParentEntity{
     @Column
     private String email;
     @Column
-    private boolean flag;
+    private int flag;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "codetype", referencedColumnName = "codetype" )
@@ -31,11 +31,11 @@ public class Customer extends ParentEntity{
         this.typeCustomer = typeCustomer;
     }
 
-    public boolean isFlag() {
+    public int getFlag() {
         return flag;
     }
 
-    public void setFlag(boolean flag) {
+    public void setFlag(int flag) {
         this.flag = flag;
     }
 }

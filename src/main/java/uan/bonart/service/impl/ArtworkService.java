@@ -8,6 +8,7 @@ import uan.bonart.exception.ResourceNotFoundException;
 import uan.bonart.repositories.ArtworkRepository;
 import uan.bonart.service.IArtworkService;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -21,9 +22,9 @@ public class ArtworkService implements IArtworkService {
 	}
 
 	@Override
-	public Iterable<Artwork> findAll() {
+	public List<Artwork> findAll() {
 
-		return artworkRepository.findAll();
+		return (List<Artwork>) artworkRepository.findAll();
 	}
 
 	@Override
@@ -32,16 +33,15 @@ public class ArtworkService implements IArtworkService {
 	}
 
 	@Override
-	public Iterable<Artwork> findByRoomCode(Integer code) {
+	public List<Artwork> findByRoomCode(Integer code) {
 		return artworkRepository.findByRoomCode(code);
 	}
 
 	@Override
 	public void deleteByInscription_code(int code) {
-			if (artworkRepository.findByInscription_code(code).isPresent()) {
+		if (artworkRepository.findByInscription_code(code).isPresent()) {
 			artworkRepository.deleteByInscription_code(code);
 		}
-		//throw new ResourceNotFoundException("User", "id", findByInscription_code(code).toString());
 	}
 
 	@Override
