@@ -41,7 +41,7 @@ public class CustomerServiceTest {
 
         when(customerRepository.save(customerMock)).thenReturn(customerMock);
         when(customerRepository.findAll()).thenReturn(customerList());
-        when(customerRepository.findByDocument(anyString())).thenReturn(Optional.of(customerMock));
+        when(customerRepository.findById(anyString())).thenReturn(Optional.of(customerMock));
     }
 
     @Test
@@ -56,7 +56,7 @@ public class CustomerServiceTest {
 
     @Test
     public void testFindByDocument() throws Exception {
-        customerService.findByDocument("1014293634");
+        customerService.findById("1014293634");
     }
 
     public List<Customer> customerList(){

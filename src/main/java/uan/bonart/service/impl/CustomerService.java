@@ -8,7 +8,6 @@ import uan.bonart.exception.ResourceNotFoundException;
 import uan.bonart.repositories.CustomerRepository;
 import uan.bonart.service.ICustomerService;
 
-import java.util.List;
 
 
 @Service
@@ -22,18 +21,8 @@ public class CustomerService implements ICustomerService {
 	}
 
 	@Override
-<<<<<<< HEAD
 	public Iterable<Customer> findAll() {
 		return customerRepository.findAll();
-=======
-	public List<Customer> findAll() {
-		return (List<Customer>) customerRepository.findAll();
-	}
-
-	@Override
-	public boolean findByDocument(String document) {
-		return customerRepository.findByDocument(document).isPresent();
->>>>>>> refs/remotes/origin/dev_john
 	}
 
 	@Override
@@ -67,9 +56,5 @@ public class CustomerService implements ICustomerService {
 		throw new ResourceNotFoundException("Customer", "document", id);
 		
 	}
-
-	
-
-   
 
 }
