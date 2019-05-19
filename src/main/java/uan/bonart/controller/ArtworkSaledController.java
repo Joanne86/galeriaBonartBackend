@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import uan.bonart.entities.ArtworkSaled;
 import uan.bonart.service.IArtworkSaledService;
 
+import java.util.List;
+
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping( "/artworksaled-api" )
@@ -20,8 +22,8 @@ public class ArtworkSaledController {
         return new ResponseEntity<>(artworkSaledService.create(artworkSaled), HttpStatus.OK);
     }
     @GetMapping("/findAllByNumberRoom")
-    public ResponseEntity<Iterable<ArtworkSaled>> findAllByNumber_room(@RequestParam int number_room) {
-        return new ResponseEntity<>(artworkSaledService.findAllByNumber_room(number_room), HttpStatus.OK);
+    public ResponseEntity<List<ArtworkSaled>> findAllByNumber_room(@RequestParam int number_room) {
+        return new ResponseEntity(artworkSaledService.findAllByNumber_room(number_room), HttpStatus.OK);
     }
     @GetMapping("/getTotal")
     public float getTotal(@RequestParam int number_room) {

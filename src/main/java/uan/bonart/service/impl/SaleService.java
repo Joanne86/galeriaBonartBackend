@@ -6,6 +6,8 @@ import uan.bonart.entities.Sale;
 import uan.bonart.repositories.SaleRepository;
 import uan.bonart.service.ISaleService;
 
+import java.util.List;
+
 
 @Service
 public class SaleService implements ISaleService {
@@ -15,13 +17,11 @@ public class SaleService implements ISaleService {
 
     @Override
     public Sale create(Sale sale) {
-
         return saleRepository.save(sale);
     }
 
     @Override
-    public Iterable<Sale> findAll() {
-
-        return saleRepository.findAll();
+    public List<Sale> findAll() {
+        return (List<Sale>) saleRepository.findAll();
     }
 }

@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import uan.bonart.entities.Customer;
 import uan.bonart.service.ICustomerService;
 
+import java.util.List;
+
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping( "/customer-api" )
@@ -15,8 +17,8 @@ public class CustomerController {
     ICustomerService customerService;
 
     @GetMapping("/findAll")
-    public ResponseEntity<Iterable<Customer>> findAll() {
-        return new ResponseEntity<>(customerService.findAll(), HttpStatus.OK);
+    public ResponseEntity<List<Customer>> findAll() {
+        return new ResponseEntity(customerService.findAll(), HttpStatus.OK);
     }
     @GetMapping("/findByDocument")
     public boolean findByDocument(@RequestParam String document) {

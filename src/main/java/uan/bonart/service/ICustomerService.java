@@ -3,12 +3,12 @@ package uan.bonart.service;
 
 import uan.bonart.entities.Customer;
 
-import java.util.Optional;
+import java.util.List;
 
 public interface ICustomerService {
     Customer create (Customer customer);
 
-    Iterable<Customer> findAll();
+    List<Customer> findAll();
 
     boolean findByDocument(String document);
 }

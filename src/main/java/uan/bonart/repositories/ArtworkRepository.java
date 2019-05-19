@@ -6,12 +6,13 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.transaction.annotation.Transactional;
 import uan.bonart.entities.Artwork;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface ArtworkRepository extends CrudRepository<Artwork, Integer> {
 
     @Query ("SELECT a FROM Artwork a join a.room r where r.code=?1")
-    Iterable<Artwork> findByRoomCode(Integer code);
+    List<Artwork> findByRoomCode(Integer code);
     Artwork findByName(String name);
 
     @Transactional
