@@ -42,8 +42,4 @@ public class ArtworkController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-
-   // <--style="margin-right: 20px;"
-
-
 }
