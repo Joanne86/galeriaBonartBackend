@@ -44,9 +44,9 @@ public class CustomerController {
 		return new ResponseEntity<>(customerService.update(customer), HttpStatus.OK);
 	}
 	
-	@GetMapping("/findById")
-	public ResponseEntity<Customer> findOne(@RequestParam String id) throws ResourceNotFoundException {
-		return new ResponseEntity<>(customerService.findById(id), HttpStatus.OK);
-	}
+	@GetMapping("/findByDocument")
+    public boolean findByDocument(@RequestParam String document) {
+        return (customerService.findByDocument(document));
+    }
 
 }

@@ -17,5 +17,7 @@ public interface IArtistService {
 	Artist findById(String id) throws ResourceNotFoundException;
 	
 	void deleteById(String id) throws ResourceNotFoundException;
+	
+	boolean findByDocument(String document);
 
 }

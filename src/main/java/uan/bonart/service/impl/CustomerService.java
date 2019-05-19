@@ -1,5 +1,7 @@
 package uan.bonart.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,11 +20,6 @@ public class CustomerService implements ICustomerService {
 	@Override
 	public Customer create(Customer customer) {
 		return customerRepository.save(customer);
-	}
-
-	@Override
-	public Iterable<Customer> findAll() {
-		return customerRepository.findAll();
 	}
 
 	@Override
@@ -55,6 +52,16 @@ public class CustomerService implements ICustomerService {
 		
 		throw new ResourceNotFoundException("Customer", "document", id);
 		
+	}
+
+	@Override
+	public List<Customer> findAll() {
+		return (List<Customer>) customerRepository.findAll();
+	}
+
+	@Override
+	public boolean findByDocument(String document) {
+		return customerRepository.findByDocument(document).isPresent();
 	}
 
 }

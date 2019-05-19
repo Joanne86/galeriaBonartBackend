@@ -64,8 +64,18 @@ public class ArtistController {
 		return new ResponseEntity<>(artistService.update(artist), HttpStatus.OK);
 	}
 	
+	@GetMapping("/findByDocument")
+	public boolean findByDocument(@RequestParam String document) {
+		return (artistService.findByDocument(document));
+	}
+	
 	@GetMapping("/findById")
-	public ResponseEntity<Artist> findOne(@RequestParam String id) throws ResourceNotFoundException {
-		return new ResponseEntity<>(artistService.findById(id), HttpStatus.OK);
+	public ResponseEntity<Artist> findById(@RequestParam String id) {
+		try {
+			artistService.findById(id);
+		} catch (ResourceNotFoundException e) {
+			e.printStackTrace();
+		}
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 }

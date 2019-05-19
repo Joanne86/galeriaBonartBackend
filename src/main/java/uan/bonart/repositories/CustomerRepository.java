@@ -8,7 +8,7 @@ import uan.bonart.entities.Customer;
 
 public interface CustomerRepository extends CrudRepository<Customer, String> {
 
-    Optional<Customer> findByDocument(String document);
+	Optional<Customer> findByDocument(String document);
 
-    //query de tener el monto actual en cualquier momento se puede consultar cuando se llega recaudado
+    
 }

@@ -60,5 +60,10 @@ public class ArtistService implements IArtistService {
 			throw new ResourceNotFoundException("Artist", "document", id);
 		}
 	}
+	@Override
+	public boolean findByDocument(String document) {
+		
+		return(artistRepository.findByDocument(document).isPresent());
+	}
 
 }

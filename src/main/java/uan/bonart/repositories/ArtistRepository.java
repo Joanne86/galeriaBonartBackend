@@ -10,9 +10,9 @@ import java.util.Optional;
 
 
 public interface ArtistRepository extends CrudRepository<Artist, String> {
-	/*
-	List<Artist>findAll();
-	void delete(Artist artist);*/
-	
+	Optional<Artist> findByDocument(String document);
 
+    @Query ("SELECT a FROM Artist a")
+    List<Artist> findAll();
+	
 }

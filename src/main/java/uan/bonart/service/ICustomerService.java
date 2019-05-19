@@ -1,5 +1,7 @@
 package uan.bonart.service;
 
+import java.util.List;
+
 import uan.bonart.entities.Customer;
 import uan.bonart.exception.ResourceNotFoundException;
 
@@ -7,8 +9,8 @@ import uan.bonart.exception.ResourceNotFoundException;
 public interface ICustomerService {
 	Customer create (Customer customer);
 
-
-	Iterable<Customer> findAll();
+	List<Customer> findAll();
+	//Iterable<Customer> findAll();
 	
 	void delete (Customer customer) throws ResourceNotFoundException;
 	
@@ -17,6 +19,8 @@ public interface ICustomerService {
 	Customer findById(String id) throws ResourceNotFoundException;
 	
 	void deleteById(String id) throws ResourceNotFoundException;
+	
+	boolean findByDocument(String document);
 
 
 }

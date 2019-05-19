@@ -36,7 +36,7 @@ public class ArtistServiceTest {
         when(artistRepository.save(artistMock)).thenReturn(artistMock);
         when(artistService.create(artistMock)).thenReturn(artistMock);
         when(artistRepository.findAll()).thenReturn(artistServiceTest());
-        when(artistRepository.findById(anyString())).thenReturn(Optional.of(artistMock));
+        when(artistRepository.findByDocument(anyString())).thenReturn(Optional.of(artistMock));
 
     }
 
@@ -53,7 +53,7 @@ public class ArtistServiceTest {
 
     @Test
     public void testFindByDocument() throws Exception {
-        artistService.findById(anyString());
+        artistService.findByDocument(anyString());
     }
 
     public List<Artist> artistServiceTest(){
