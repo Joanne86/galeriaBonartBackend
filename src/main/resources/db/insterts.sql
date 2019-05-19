@@ -6,10 +6,13 @@ insert into artist values ('1234567890', 'Sara fuentes', 'suba','3125256290', 'b
 insert into seller values ('1014293632', 'David Esteban Rodriguez Fuentes', '3135678435');
 insert into seller values ('79289201', 'John Alexander Martinez Pinto', '3124567841');
 insert into seller values ('2343567654', 'Harold Esteban Reyes Lancheros', '3125465340');
+insert into seller values ('5434544576', 'Claudia Liliana Hernandez', '3124345541');
+
 
 insert into sesion values ('1','lrodr78', 'Colombia1', '1014293632');
 insert into sesion values ('2','jmartinez12', 'Colombia2', '79289201');
 insert into sesion values ('3','hreyes34', 'Colombia3', '2343567654');
+insert into sesion values ('4','test', 'Colombia4', '5434544576');
 
 insert into room values (1, 'pinturas', '1014293632');
 insert into room values (2, 'esculturas', '79289201');

@@ -17,4 +17,14 @@ public class ArtworkSaledService implements IArtworkSaledService {
     public ArtworkSaled create(ArtworkSaled artworkSaled) {
         return artworkSaledRepository.save(artworkSaled);
     }
+
+    @Override
+    public Iterable<ArtworkSaled> findAllByNumber_room(int number_room) {
+        return artworkSaledRepository.findAllByNumber_room(number_room);
+    }
+
+    @Override
+    public float getTotal(int number_room) {
+       return artworkSaledRepository.getTotal(number_room);
+    }
 }

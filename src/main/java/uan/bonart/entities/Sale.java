@@ -16,7 +16,16 @@ public class Sale {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "artwork_code", referencedColumnName = "inscription_code" )
-    private Artwork artwork;
+    private ArtworkSaled artworkSaled;
+
+
+    public ArtworkSaled getArtworkSaled() {
+        return artworkSaled;
+    }
+
+    public void setArtworkSaled(ArtworkSaled artworkSaled) {
+        this.artworkSaled = artworkSaled;
+    }
 
     public int getId() {
         return id;
@@ -32,13 +41,5 @@ public class Sale {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
-    }
-
-    public Artwork getArtwork() {
-        return artwork;
-    }
-
-    public void setArtwork(Artwork artwork) {
-        this.artwork = artwork;
     }
 }

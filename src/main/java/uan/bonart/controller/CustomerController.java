@@ -18,8 +18,13 @@ public class CustomerController {
     public ResponseEntity<Iterable<Customer>> findAll() {
         return new ResponseEntity<>(customerService.findAll(), HttpStatus.OK);
     }
+    @GetMapping("/findByDocument")
+    public boolean findByDocument(@RequestParam String document) {
+        return (customerService.findByDocument(document));
+    }
     @PostMapping("/create")
     public ResponseEntity<Customer> create(@RequestBody Customer customer) {
         return new ResponseEntity<>(customerService.create(customer), HttpStatus.OK);
     }
+
 }

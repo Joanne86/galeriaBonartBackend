@@ -65,10 +65,10 @@ create table if not exists customer (
     constraint `customer_ibfk_1` foreign key (codetype) references `typecustomer` (`codetype`)
 );
 create table if not exists artworksaled (
-    inscription_code int(3) primary key auto_increment not null,
+    inscription_code int(3) primary key not null,
     name varchar(40) not null,
     price float,
-    artist varchar (10) not null,
+    artist varchar (50) not null,
     number_room int (3) not null
 );
 
