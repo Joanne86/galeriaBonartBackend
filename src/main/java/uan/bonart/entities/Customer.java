@@ -1,8 +1,6 @@
 package uan.bonart.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table (name="customer")
@@ -11,9 +9,11 @@ public class Customer extends ParentEntity{
     @Column
     private String email;
     @Column
-    private float entry_price;//tarifa cambia si es menor de edad
-    @Column
     private boolean flag;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "codetype", referencedColumnName = "codetype" )
+    private TypeCustomer typeCustomer;//tarifa cambia si es menor de edad
 
     public String getEmail() {
         return email;
@@ -23,12 +23,12 @@ public class Customer extends ParentEntity{
         this.email = email;
     }
 
-    public float getEntry_price() {
-        return entry_price;
+    public TypeCustomer getTypeCustomer() {
+        return typeCustomer;
     }
 
-    public void setEntry_price(float entry_price) {
-        this.entry_price = entry_price;
+    public void setTypeCustomer(TypeCustomer typeCustomer) {
+        this.typeCustomer = typeCustomer;
     }
 
     public boolean isFlag() {
