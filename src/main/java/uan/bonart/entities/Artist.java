@@ -22,8 +22,6 @@ public class Artist extends ParentEntity{
         this.address = address;
     }
 
-
-
     public String getCity() {
         return city;
     }
