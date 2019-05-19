@@ -8,9 +8,11 @@ import uan.bonart.entities.Artwork;
 import java.util.List;
 import java.util.Optional;
 
-public interface ArtistRepository extends CrudRepository<Artist, Integer> {
-    Optional<Artist> findByDocument(String document);
+
+public interface ArtistRepository extends CrudRepository<Artist, String> {
+	Optional<Artist> findByDocument(String document);
 
     @Query ("SELECT a FROM Artist a")
     List<Artist> findAll();
+	
 }
