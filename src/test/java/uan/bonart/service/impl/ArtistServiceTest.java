@@ -1,12 +1,13 @@
 package uan.bonart.service.impl;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.beans.factory.annotation.Autowired;
 import uan.bonart.entities.Artist;
+import uan.bonart.exception.ResourceNotFoundException;
 import uan.bonart.repositories.ArtistRepository;
 
 import java.util.ArrayList;
@@ -22,20 +23,22 @@ public class ArtistServiceTest {
     @InjectMocks
     ArtistService artistService;
 
-    Artist artistMock = new Artist();
+    @Mock
+    Artist artistMock;
 
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
+
         artistMock.setAddress("San telmo");
         artistMock.setCity("bogota");
         artistMock.setExhibitions("corferias");
         artistMock.setCellphone("3125256290");
         artistMock.setDocument("1014293634");
         artistMock.setName("leidy rodriguez");
+
         when(artistRepository.save(artistMock)).thenReturn(artistMock);
-        when(artistService.create(artistMock)).thenReturn(artistMock);
-        when(artistRepository.findAll()).thenReturn(artistServiceTest());
+        when(artistRepository.findAll()).thenReturn(artistsList());
         when(artistRepository.findByDocument(anyString())).thenReturn(Optional.of(artistMock));
 
     }
@@ -56,7 +59,18 @@ public class ArtistServiceTest {
         artistService.findByDocument(anyString());
     }
 
-    public List<Artist> artistServiceTest(){
+    @Test
+    public void testUpdate() throws ResourceNotFoundException {
+        artistService.update(artistMock);
+    }
+
+  /*  @Test
+    public void testDelete() throws ResourceNotFoundException {
+        when(artistRepository.findByDocument(anyString())).thenReturn(Optional.of(artistMock));
+        artistService.delete(artistMock);
+    }*/
+
+    public List<Artist> artistsList(){
         List<Artist> result = new ArrayList<>();
         result.add(artistMock);
         return result;

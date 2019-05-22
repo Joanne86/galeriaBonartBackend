@@ -52,13 +52,7 @@ public class ArtistController {
 		artistService.delete(artist);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
-	
-	@DeleteMapping("/deleteById")
-	public ResponseEntity<Object> delete(@RequestParam String id) throws ResourceNotFoundException {
-		artistService.deleteById(id);
-		return new ResponseEntity<>(HttpStatus.OK);
-	}
-	
+
 	@PutMapping("/update")
 	public ResponseEntity<Artist> update(@RequestBody Artist artist) throws ResourceNotFoundException {
 		return new ResponseEntity<>(artistService.update(artist), HttpStatus.OK);
@@ -68,14 +62,5 @@ public class ArtistController {
 	public boolean findByDocument(@RequestParam String document) {
 		return (artistService.findByDocument(document));
 	}
-	
-	@GetMapping("/findById")
-	public ResponseEntity<Artist> findById(@RequestParam String id) {
-		try {
-			artistService.findById(id);
-		} catch (ResourceNotFoundException e) {
-			e.printStackTrace();
-		}
-		return new ResponseEntity<>(HttpStatus.OK);
-	}
+
 }
