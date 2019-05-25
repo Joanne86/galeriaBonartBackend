@@ -10,9 +10,7 @@ import java.util.Optional;
 
 
 public interface ArtistRepository extends CrudRepository<Artist, String> {
-	Optional<Artist> findByDocument(String document);
-
-    @Query ("SELECT a FROM Artist a")
-    List<Artist> findAll();
+    @Query("SELECT a FROM Artist a WHERE a.document=?1")
+    Optional<Artist> findByDocument(String document);
 	
 }
