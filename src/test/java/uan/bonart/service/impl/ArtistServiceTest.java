@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.beans.factory.annotation.Autowired;
 import uan.bonart.entities.Artist;
 import uan.bonart.exception.ResourceNotFoundException;
 import uan.bonart.repositories.ArtistRepository;
@@ -26,6 +25,9 @@ public class ArtistServiceTest {
     @Mock
     Artist artistMock;
 
+    @Mock
+    Artist artistMock2;
+
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
@@ -37,9 +39,11 @@ public class ArtistServiceTest {
         artistMock.setDocument("1014293634");
         artistMock.setName("leidy rodriguez");
 
+        artistMock2.setDocument("123456789");
+
         when(artistRepository.save(artistMock)).thenReturn(artistMock);
         when(artistRepository.findAll()).thenReturn(artistsList());
-        when(artistRepository.findByDocument(anyString())).thenReturn(Optional.of(artistMock));
+        when(artistRepository.findByDocument(artistMock.getDocument())).thenReturn(Optional.of(artistMock));
 
     }
 
@@ -63,12 +67,21 @@ public class ArtistServiceTest {
     public void testUpdate() throws ResourceNotFoundException {
         artistService.update(artistMock);
     }
+    @Test
+    public void testUpdateFail() throws ResourceNotFoundException {
+        when(artistRepository.findByDocument("123456789")).thenReturn(Optional.of(artistMock2));
+        artistService.update(artistMock);
+    }
 
-  /*  @Test
+  @Test
     public void testDelete() throws ResourceNotFoundException {
-        when(artistRepository.findByDocument(anyString())).thenReturn(Optional.of(artistMock));
         artistService.delete(artistMock);
-    }*/
+    }
+    @Test
+    public void testDeleteFail() throws ResourceNotFoundException {
+        when(artistRepository.findByDocument(artistMock2.getDocument())).thenReturn(Optional.of(artistMock2));
+        artistService.delete(artistMock2);
+    }
 
     public List<Artist> artistsList(){
         List<Artist> result = new ArrayList<>();

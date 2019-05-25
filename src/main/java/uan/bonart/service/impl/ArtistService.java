@@ -27,16 +27,19 @@ public class ArtistService implements IArtistService {
 
 		if (artistRepository.findByDocument(artist.getDocument()).isPresent()) {
 			artistRepository.delete(artist);
+		}else{
+			throw new ResourceNotFoundException("Artist", "document", artist.getDocument());
 		}
-		throw new ResourceNotFoundException("Artist", "document", artist.getDocument());
+
 	}
 
 	@Override
 	public Artist update(Artist artist) throws ResourceNotFoundException {
 		if (artistRepository.findByDocument(artist.getDocument()).isPresent()) {
 			return artistRepository.save(artist);
+		}else{
+			throw new ResourceNotFoundException("Artist", "document", artist.getDocument());
 		}
-		throw new ResourceNotFoundException("Artist", "document", artist.getDocument());
 	}
 
 	@Override

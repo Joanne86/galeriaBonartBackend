@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import uan.bonart.entities.ArtworkSaled;
 import uan.bonart.entities.Customer;
 import uan.bonart.entities.TypeCustomer;
 import uan.bonart.repositories.CustomerRepository;
@@ -23,6 +22,7 @@ public class CustomerServiceTest {
     CustomerService customerService;
 
     Customer customerMock = new Customer();
+
     TypeCustomer typeCustomerMock = new TypeCustomer();
 
     @Before
@@ -65,5 +65,3 @@ public class CustomerServiceTest {
         return result;
     }
 }
-
-//Generated with love by TestMe :) Please report issues and submit feature requests at: http://weirddev.com/forum#!/testme

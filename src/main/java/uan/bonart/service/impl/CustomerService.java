@@ -24,34 +24,20 @@ public class CustomerService implements ICustomerService {
 
 	@Override
 	public void delete(Customer customer) throws ResourceNotFoundException {
-		if(customerRepository.findById(customer.getDocument()).isPresent())
+		if(customerRepository.findByDocument(customer.getDocument()).isPresent()){
 			customerRepository.delete(customer);
-		throw new ResourceNotFoundException("Customer", "document", customer.getDocument());
-		
+		}else{
+			throw new ResourceNotFoundException("Customer", "document", customer.getDocument());
+		}
 	}
 
 	@Override
 	public Customer update(Customer customer) throws ResourceNotFoundException {
-		if(customerRepository.findById(customer.getDocument()).isPresent())
+		if(customerRepository.findByDocument(customer.getDocument()).isPresent()){
 			return customerRepository.save(customer);
-		throw new ResourceNotFoundException("Customer", "document", customer.getDocument());
-	}
-
-	@Override
-	public Customer findById(String id) throws ResourceNotFoundException {
-		if(customerRepository.findById(id).isPresent())
-			return customerRepository.findById(id).get();
-		
-		throw new ResourceNotFoundException("Customer", "document", id);
-	}
-
-	@Override
-	public void deleteById(String id) throws ResourceNotFoundException {
-		if(customerRepository.findById(id).isPresent())
-			customerRepository.deleteById(id);
-		
-		throw new ResourceNotFoundException("Customer", "document", id);
-		
+		}else {
+			throw new ResourceNotFoundException("Customer", "document", customer.getDocument());
+		}
 	}
 
 	@Override

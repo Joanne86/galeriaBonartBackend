@@ -33,12 +33,6 @@ public class CustomerController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/deleteById")
-	public ResponseEntity<Object> delete(@RequestParam String id) throws ResourceNotFoundException {
-		customerService.deleteById(id);
-		return new ResponseEntity<>(HttpStatus.OK);
-	}
-	
 	@PutMapping("/update")
 	public ResponseEntity<Customer> update(@RequestBody Customer customer) throws ResourceNotFoundException {
 		return new ResponseEntity<>(customerService.update(customer), HttpStatus.OK);
