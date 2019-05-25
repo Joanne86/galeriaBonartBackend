@@ -22,11 +22,8 @@ public class ArtistServiceTest {
     @InjectMocks
     ArtistService artistService;
 
-    @Mock
-    Artist artistMock;
 
-    @Mock
-    Artist artistMock2;
+    Artist artistMock = new Artist();
 
     @Before
     public void setUp() {
@@ -36,14 +33,13 @@ public class ArtistServiceTest {
         artistMock.setCity("bogota");
         artistMock.setExhibitions("corferias");
         artistMock.setCellphone("3125256290");
-        artistMock.setDocument("1014293634");
+        //artistMock.setDocument("1014293634");
         artistMock.setName("leidy rodriguez");
 
-        artistMock2.setDocument("123456789");
 
+        when(artistRepository.findByDocument("123456789")).thenReturn(Optional.of(artistMock));
         when(artistRepository.save(artistMock)).thenReturn(artistMock);
         when(artistRepository.findAll()).thenReturn(artistsList());
-        when(artistRepository.findByDocument(artistMock.getDocument())).thenReturn(Optional.of(artistMock));
 
     }
 
@@ -65,22 +61,23 @@ public class ArtistServiceTest {
 
     @Test
     public void testUpdate() throws ResourceNotFoundException {
+        artistMock.setDocument("123456789");
         artistService.update(artistMock);
     }
-    @Test
+    @Test (expected = ResourceNotFoundException.class)
     public void testUpdateFail() throws ResourceNotFoundException {
-        when(artistRepository.findByDocument("123456789")).thenReturn(Optional.of(artistMock2));
         artistService.update(artistMock);
     }
 
   @Test
     public void testDelete() throws ResourceNotFoundException {
+        artistMock.setDocument("123456789");
         artistService.delete(artistMock);
     }
-    @Test
+
+    @Test (expected = ResourceNotFoundException.class)
     public void testDeleteFail() throws ResourceNotFoundException {
-        when(artistRepository.findByDocument(artistMock2.getDocument())).thenReturn(Optional.of(artistMock2));
-        artistService.delete(artistMock2);
+        artistService.delete(artistMock);
     }
 
     public List<Artist> artistsList(){

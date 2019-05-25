@@ -7,6 +7,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import uan.bonart.entities.Customer;
 import uan.bonart.entities.TypeCustomer;
+import uan.bonart.exception.ResourceNotFoundException;
 import uan.bonart.repositories.CustomerRepository;
 
 import java.util.ArrayList;
@@ -33,15 +34,16 @@ public class CustomerServiceTest {
         typeCustomerMock.setTypec("ADULTO");
         typeCustomerMock.setPrice(20000f);
 
+
         customerMock.setEmail("lrodriguez52@uan.edu.co");
         customerMock.setFlag(1);
         customerMock.setTypeCustomer(typeCustomerMock);
 
 
-
+        when(customerRepository.findByDocument("123456789")).thenReturn(Optional.of(customerMock));
         when(customerRepository.save(customerMock)).thenReturn(customerMock);
         when(customerRepository.findAll()).thenReturn(customerList());
-        when(customerRepository.findByDocument(anyString())).thenReturn(Optional.of(customerMock));
+
     }
 
     @Test
@@ -53,6 +55,29 @@ public class CustomerServiceTest {
     public void testFindAll() throws Exception {
         customerService.findAll();
     }
+
+    @Test (expected = ResourceNotFoundException.class)
+    public void testUpdateFail() throws ResourceNotFoundException {
+        customerService.update(customerMock);
+    }
+
+    @Test
+    public void testUpdate() throws ResourceNotFoundException {
+        customerMock.setDocument("123456789");
+        customerService.update(customerMock);
+    }
+
+    @Test (expected = ResourceNotFoundException.class)
+    public void testDeleteFail() throws ResourceNotFoundException {
+        customerService.delete(customerMock);
+    }
+
+    @Test
+    public void testDelete() throws ResourceNotFoundException {
+        customerMock.setDocument("123456789");
+        customerService.delete(customerMock);
+    }
+
 
     @Test
     public void testFindByDocument() throws Exception {
