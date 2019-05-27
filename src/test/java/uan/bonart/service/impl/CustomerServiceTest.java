@@ -5,9 +5,9 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import uan.bonart.entities.ArtworkSaled;
 import uan.bonart.entities.Customer;
 import uan.bonart.entities.TypeCustomer;
+import uan.bonart.exception.ResourceNotFoundException;
 import uan.bonart.repositories.CustomerRepository;
 
 import java.util.ArrayList;
@@ -23,6 +23,7 @@ public class CustomerServiceTest {
     CustomerService customerService;
 
     Customer customerMock = new Customer();
+
     TypeCustomer typeCustomerMock = new TypeCustomer();
 
     @Before
@@ -33,15 +34,16 @@ public class CustomerServiceTest {
         typeCustomerMock.setTypec("ADULTO");
         typeCustomerMock.setPrice(20000f);
 
+
         customerMock.setEmail("lrodriguez52@uan.edu.co");
         customerMock.setFlag(1);
         customerMock.setTypeCustomer(typeCustomerMock);
 
 
-
+        when(customerRepository.findByDocument("123456789")).thenReturn(Optional.of(customerMock));
         when(customerRepository.save(customerMock)).thenReturn(customerMock);
         when(customerRepository.findAll()).thenReturn(customerList());
-        when(customerRepository.findByDocument(anyString())).thenReturn(Optional.of(customerMock));
+        when(customerRepository.getTotal()).thenReturn(2000f);
     }
 
     @Test
@@ -54,9 +56,41 @@ public class CustomerServiceTest {
         customerService.findAll();
     }
 
+    @Test (expected = ResourceNotFoundException.class)
+    public void testUpdateFail() throws ResourceNotFoundException {
+        customerService.update(customerMock);
+    }
+
+    @Test
+    public void testUpdate() throws ResourceNotFoundException {
+        customerMock.setDocument("123456789");
+        customerService.update(customerMock);
+    }
+
+    @Test (expected = ResourceNotFoundException.class)
+    public void testDeleteFail() throws ResourceNotFoundException {
+        customerService.delete(customerMock);
+    }
+
+    @Test
+    public void testDelete() throws ResourceNotFoundException {
+        customerMock.setDocument("123456789");
+        customerService.delete(customerMock);
+    }
+
+
     @Test
     public void testFindByDocument() throws Exception {
         customerService.findByDocument("1014293634");
+    }
+    @Test
+    public void testFindByDocument_() throws Exception {
+        customerService.findByDocument_("1014293634");
+    }
+
+    @Test
+    public void testGetTotal() throws Exception {
+        customerService.getTotal();
     }
 
     public List<Customer> customerList(){
@@ -65,5 +99,3 @@ public class CustomerServiceTest {
         return result;
     }
 }
-
-//Generated with love by TestMe :) Please report issues and submit feature requests at: http://weirddev.com/forum#!/testme

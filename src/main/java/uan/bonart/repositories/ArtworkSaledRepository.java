@@ -13,4 +13,7 @@ public interface ArtworkSaledRepository extends CrudRepository<ArtworkSaled,Inte
 
     @Query ("SELECT SUM(a.price) FROM ArtworkSaled a WHERE a.number_room=?1")
     float getTotal(int number_room);
+
+    @Query ("SELECT SUM(a.price) FROM ArtworkSaled a")
+    float getTotal();
 }

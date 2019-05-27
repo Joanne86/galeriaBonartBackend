@@ -1,10 +1,12 @@
 package uan.bonart.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import uan.bonart.entities.Artist;
 import uan.bonart.entities.Customer;
 import uan.bonart.exception.ResourceNotFoundException;
 import uan.bonart.repositories.CustomerRepository;
@@ -24,34 +26,20 @@ public class CustomerService implements ICustomerService {
 
 	@Override
 	public void delete(Customer customer) throws ResourceNotFoundException {
-		if(customerRepository.findById(customer.getDocument()).isPresent())
+		if(customerRepository.findByDocument(customer.getDocument()).isPresent()){
 			customerRepository.delete(customer);
-		throw new ResourceNotFoundException("Customer", "document", customer.getDocument());
-		
+		}else{
+			throw new ResourceNotFoundException("Customer", "document", customer.getDocument());
+		}
 	}
 
 	@Override
 	public Customer update(Customer customer) throws ResourceNotFoundException {
-		if(customerRepository.findById(customer.getDocument()).isPresent())
+		if(customerRepository.findByDocument(customer.getDocument()).isPresent()){
 			return customerRepository.save(customer);
-		throw new ResourceNotFoundException("Customer", "document", customer.getDocument());
-	}
-
-	@Override
-	public Customer findById(String id) throws ResourceNotFoundException {
-		if(customerRepository.findById(id).isPresent())
-			return customerRepository.findById(id).get();
-		
-		throw new ResourceNotFoundException("Customer", "document", id);
-	}
-
-	@Override
-	public void deleteById(String id) throws ResourceNotFoundException {
-		if(customerRepository.findById(id).isPresent())
-			customerRepository.deleteById(id);
-		
-		throw new ResourceNotFoundException("Customer", "document", id);
-		
+		}else {
+			throw new ResourceNotFoundException("Customer", "document", customer.getDocument());
+		}
 	}
 
 	@Override
@@ -62,6 +50,16 @@ public class CustomerService implements ICustomerService {
 	@Override
 	public boolean findByDocument(String document) {
 		return customerRepository.findByDocument(document).isPresent();
+	}
+
+	@Override
+	public Optional<Customer> findByDocument_(String document){
+		return customerRepository.findByDocument(document);
+	}
+
+	@Override
+	public float getTotal() {
+		return customerRepository.getTotal();
 	}
 
 }

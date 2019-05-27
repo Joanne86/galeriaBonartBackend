@@ -10,6 +10,7 @@ import uan.bonart.exception.ResourceNotFoundException;
 import uan.bonart.service.ICustomerService;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -33,12 +34,6 @@ public class CustomerController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/deleteById")
-	public ResponseEntity<Object> delete(@RequestParam String id) throws ResourceNotFoundException {
-		customerService.deleteById(id);
-		return new ResponseEntity<>(HttpStatus.OK);
-	}
-	
 	@PutMapping("/update")
 	public ResponseEntity<Customer> update(@RequestBody Customer customer) throws ResourceNotFoundException {
 		return new ResponseEntity<>(customerService.update(customer), HttpStatus.OK);
@@ -48,5 +43,15 @@ public class CustomerController {
     public boolean findByDocument(@RequestParam String document) {
         return (customerService.findByDocument(document));
     }
+
+    @GetMapping("/findByDocument_")
+    public Optional<Customer> findByDocument_(@RequestParam String document){
+        return (customerService.findByDocument_(document));
+    }
+    @GetMapping("/getTotal")
+    public float getTotal(){
+        return (customerService.getTotal());
+    }
+
 
 }

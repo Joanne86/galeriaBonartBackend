@@ -25,8 +25,18 @@ public class ArtworkSaledController {
     public ResponseEntity<List<ArtworkSaled>> findAllByNumber_room(@RequestParam int number_room) {
         return new ResponseEntity(artworkSaledService.findAllByNumber_room(number_room), HttpStatus.OK);
     }
+    @GetMapping("/findAll")
+    public ResponseEntity<List<ArtworkSaled>> findAll() {
+        return new ResponseEntity(artworkSaledService.findAll(), HttpStatus.OK);
+    }
     @GetMapping("/getTotal")
     public float getTotal(@RequestParam int number_room) {
         return (artworkSaledService.getTotal(number_room));
     }
+
+    @GetMapping("/getTotals")
+    public float getTotales() {
+        return (artworkSaledService.getTotals());
+    }
+
 }

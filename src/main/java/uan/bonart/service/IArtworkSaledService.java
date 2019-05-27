@@ -10,6 +10,10 @@ public interface IArtworkSaledService {
 
     List<ArtworkSaled> findAllByNumber_room(int number_room);
 
+    List<ArtworkSaled> findAll();
+
     float getTotal(int number_room);
+
+    float getTotals();
 
 }
