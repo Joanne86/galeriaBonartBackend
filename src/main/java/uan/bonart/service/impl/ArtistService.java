@@ -8,8 +8,11 @@ import uan.bonart.exception.ResourceNotFoundException;
 import uan.bonart.repositories.ArtistRepository;
 import uan.bonart.service.IArtistService;
 
+import java.util.Optional;
+
 
 @Service
+
 public class ArtistService implements IArtistService {
 	@Autowired
 	private ArtistRepository artistRepository;
@@ -23,12 +26,11 @@ public class ArtistService implements IArtistService {
 
 
 	@Override
-	public void delete(Artist artist) throws ResourceNotFoundException {
-
-		if (artistRepository.findByDocument(artist.getDocument()).isPresent()) {
-			artistRepository.delete(artist);
+	public void delete(String document) throws ResourceNotFoundException {
+		if (artistRepository.findByDocument(document).isPresent()) {
+			artistRepository.deleteByDocument(document);
 		}else{
-			throw new ResourceNotFoundException("Artist", "document", artist.getDocument());
+			throw new ResourceNotFoundException("Artist", "document", document);
 		}
 
 	}
@@ -44,8 +46,12 @@ public class ArtistService implements IArtistService {
 
 	@Override
 	public boolean findByDocument(String document) {
-
 		return(artistRepository.findByDocument(document).isPresent());
+	}
+
+	@Override
+	public Optional<Artist> findByDocument_(String document) {
+		return artistRepository.findByDocument(document);
 	}
 
 }

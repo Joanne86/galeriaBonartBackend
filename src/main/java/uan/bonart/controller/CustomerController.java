@@ -10,6 +10,7 @@ import uan.bonart.exception.ResourceNotFoundException;
 import uan.bonart.service.ICustomerService;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -42,5 +43,15 @@ public class CustomerController {
     public boolean findByDocument(@RequestParam String document) {
         return (customerService.findByDocument(document));
     }
+
+    @GetMapping("/findByDocument_")
+    public Optional<Customer> findByDocument_(@RequestParam String document){
+        return (customerService.findByDocument_(document));
+    }
+    @GetMapping("/getTotal")
+    public float getTotal(){
+        return (customerService.getTotal());
+    }
+
 
 }

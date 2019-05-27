@@ -58,6 +58,11 @@ public class ArtistServiceTest {
     public void testFindByDocument() throws Exception {
         artistService.findByDocument(anyString());
     }
+    @Test
+    public void testFindByDocument_() throws Exception {
+        artistMock.setDocument("123456789");
+        artistService.findByDocument_("123456789");
+    }
 
     @Test
     public void testUpdate() throws ResourceNotFoundException {
@@ -71,13 +76,13 @@ public class ArtistServiceTest {
 
   @Test
     public void testDelete() throws ResourceNotFoundException {
-        artistMock.setDocument("123456789");
-        artistService.delete(artistMock);
+        //artistMock.setDocument("123456789");
+        artistService.delete("123456789");
     }
 
     @Test (expected = ResourceNotFoundException.class)
     public void testDeleteFail() throws ResourceNotFoundException {
-        artistService.delete(artistMock);
+        artistService.delete("12345679");
     }
 
     public List<Artist> artistsList(){

@@ -43,7 +43,7 @@ public class CustomerServiceTest {
         when(customerRepository.findByDocument("123456789")).thenReturn(Optional.of(customerMock));
         when(customerRepository.save(customerMock)).thenReturn(customerMock);
         when(customerRepository.findAll()).thenReturn(customerList());
-
+        when(customerRepository.getTotal()).thenReturn(2000f);
     }
 
     @Test
@@ -82,6 +82,15 @@ public class CustomerServiceTest {
     @Test
     public void testFindByDocument() throws Exception {
         customerService.findByDocument("1014293634");
+    }
+    @Test
+    public void testFindByDocument_() throws Exception {
+        customerService.findByDocument_("1014293634");
+    }
+
+    @Test
+    public void testGetTotal() throws Exception {
+        customerService.getTotal();
     }
 
     public List<Customer> customerList(){

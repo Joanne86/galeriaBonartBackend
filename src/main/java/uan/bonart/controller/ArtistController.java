@@ -10,6 +10,7 @@ import uan.bonart.exception.ResourceNotFoundException;
 import uan.bonart.service.IArtistService;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -36,8 +37,8 @@ public class ArtistController {
 	}
 
 	@DeleteMapping("/delete")
-	public ResponseEntity<Artist> delete(@RequestBody Artist artist) throws ResourceNotFoundException {
-		artistService.delete(artist);
+	public ResponseEntity<Artist> delete(@RequestParam String document ) throws ResourceNotFoundException {
+		artistService.delete(document);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
@@ -49,5 +50,10 @@ public class ArtistController {
 	@GetMapping("/findByDocument")
 	public boolean findByDocument(@RequestParam String document) {
 		return (artistService.findByDocument(document));
+	}
+
+	@GetMapping("/findByDocument_")
+	public Optional<Artist> findByDocument_(@RequestParam String document) {
+		return (artistService.findByDocument_(document));
 	}
 }
