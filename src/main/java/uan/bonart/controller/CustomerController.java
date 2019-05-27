@@ -4,10 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import uan.bonart.entities.Customer;
+import uan.bonart.exception.ResourceNotFoundException;
 import uan.bonart.service.ICustomerService;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -20,13 +23,35 @@ public class CustomerController {
     public ResponseEntity<List<Customer>> findAll() {
         return new ResponseEntity(customerService.findAll(), HttpStatus.OK);
     }
-    @GetMapping("/findByDocument")
-    public boolean findByDocument(@RequestParam String document) {
-        return (customerService.findByDocument(document));
-    }
+   
     @PostMapping("/create")
     public ResponseEntity<Customer> create(@RequestBody Customer customer) {
         return new ResponseEntity<>(customerService.create(customer), HttpStatus.OK);
     }
+    @DeleteMapping("/delete")
+	public ResponseEntity<Customer> delete(@RequestBody Customer customer) throws ResourceNotFoundException {
+		customerService.delete(customer);
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	
+	@PutMapping("/update")
+	public ResponseEntity<Customer> update(@RequestBody Customer customer) throws ResourceNotFoundException {
+		return new ResponseEntity<>(customerService.update(customer), HttpStatus.OK);
+	}
+	
+	@GetMapping("/findByDocument")
+    public boolean findByDocument(@RequestParam String document) {
+        return (customerService.findByDocument(document));
+    }
+
+    @GetMapping("/findByDocument_")
+    public Optional<Customer> findByDocument_(@RequestParam String document){
+        return (customerService.findByDocument_(document));
+    }
+    @GetMapping("/getTotal")
+    public float getTotal(){
+        return (customerService.getTotal());
+    }
+
 
 }

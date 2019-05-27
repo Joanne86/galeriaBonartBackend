@@ -26,7 +26,17 @@ public class ArtworkSaledService implements IArtworkSaledService {
     }
 
     @Override
+    public List<ArtworkSaled> findAll(){
+        return (List<ArtworkSaled>)artworkSaledRepository.findAll();
+    }
+
+    @Override
     public float getTotal(int number_room) {
        return artworkSaledRepository.getTotal(number_room);
+    }
+
+    @Override
+    public float getTotals() {
+        return artworkSaledRepository.getTotal();
     }
 }

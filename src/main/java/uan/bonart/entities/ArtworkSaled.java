@@ -16,6 +16,26 @@ public class ArtworkSaled {
     private String artist;
     @Column (name = "number_room")
     private int number_room;
+    @Column (name = "customer")
+    private String customer;
+    @Column (name = "seller")
+    private String seller;
+
+    public String getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(String customer) {
+        this.customer = customer;
+    }
+
+    public String getSeller() {
+        return seller;
+    }
+
+    public void setSeller(String seller) {
+        this.seller = seller;
+    }
 
     public int getInscription_code() {
         return inscription_code;

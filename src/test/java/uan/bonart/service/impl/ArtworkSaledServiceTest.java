@@ -33,7 +33,9 @@ public class ArtworkSaledServiceTest {
         artworkSaledMock.setPrice(1000000f);
         when(artworkSaledRepository.findAllByNumber_room(anyInt())).thenReturn(artworkSaledList());
         when(artworkSaledRepository.save(artworkSaledMock)).thenReturn(artworkSaledMock);
-        when(artworkSaledRepository.getTotal(anyInt())).thenReturn(anyFloat());
+        when(artworkSaledRepository.getTotal(1)).thenReturn(5.3f);
+        when(artworkSaledRepository.findAll()).thenReturn(artworkSaledList());
+        when(artworkSaledRepository.getTotal()).thenReturn(5.3f);
     }
 
     @Test
@@ -47,10 +49,21 @@ public class ArtworkSaledServiceTest {
     }
 
     @Test
+    public void testFindAll() throws Exception {
+        artworkSaledService.findAll();
+    }
+
+    @Test
     public void testGetTotal() throws Exception {
-        artworkSaledService.getTotal(2);
+        artworkSaledService.getTotal(1);
 
     }
+    @Test
+    public void testGetTotals() throws Exception {
+        artworkSaledService.getTotals();
+
+    }
+
     public List<ArtworkSaled> artworkSaledList(){
         List<ArtworkSaled> result = new ArrayList<>();
         result.add(artworkSaledMock);

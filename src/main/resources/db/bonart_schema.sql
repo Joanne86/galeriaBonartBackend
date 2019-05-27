@@ -69,7 +69,9 @@ create table if not exists artworksaled (
     name varchar(40) not null,
     price float,
     artist varchar (50) not null,
-    number_room int (3) not null
+    number_room int (3) not null,
+    customer varchar(70) not null,
+    seller varchar(70) not null
 );
 
 create table if not exists sale (

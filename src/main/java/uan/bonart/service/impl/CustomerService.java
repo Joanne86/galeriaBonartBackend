@@ -1,13 +1,17 @@
 package uan.bonart.service.impl;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import uan.bonart.entities.Artist;
 import uan.bonart.entities.Customer;
+import uan.bonart.exception.ResourceNotFoundException;
 import uan.bonart.repositories.CustomerRepository;
 import uan.bonart.service.ICustomerService;
 
-import java.util.List;
 
 
 @Service
@@ -21,6 +25,24 @@ public class CustomerService implements ICustomerService {
 	}
 
 	@Override
+	public void delete(Customer customer) throws ResourceNotFoundException {
+		if(customerRepository.findByDocument(customer.getDocument()).isPresent()){
+			customerRepository.delete(customer);
+		}else{
+			throw new ResourceNotFoundException("Customer", "document", customer.getDocument());
+		}
+	}
+
+	@Override
+	public Customer update(Customer customer) throws ResourceNotFoundException {
+		if(customerRepository.findByDocument(customer.getDocument()).isPresent()){
+			return customerRepository.save(customer);
+		}else {
+			throw new ResourceNotFoundException("Customer", "document", customer.getDocument());
+		}
+	}
+
+	@Override
 	public List<Customer> findAll() {
 		return (List<Customer>) customerRepository.findAll();
 	}
@@ -28,6 +50,16 @@ public class CustomerService implements ICustomerService {
 	@Override
 	public boolean findByDocument(String document) {
 		return customerRepository.findByDocument(document).isPresent();
+	}
+
+	@Override
+	public Optional<Customer> findByDocument_(String document){
+		return customerRepository.findByDocument(document);
+	}
+
+	@Override
+	public float getTotal() {
+		return customerRepository.getTotal();
 	}
 
 }
