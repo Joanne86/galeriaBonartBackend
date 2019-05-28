@@ -66,7 +66,8 @@ public class ArtworkServiceTest {
 
     @Test
     public void testCreate() throws Exception {
-       artworkService.create(new Artwork());
+       Artwork result = artworkService.create(artworkMock);
+       Assert.assertEquals(result, artworkMock);
     }
 
     @Test
@@ -77,7 +78,8 @@ public class ArtworkServiceTest {
 
     @Test
     public void testFindByName() throws Exception {
-        artworkService.findByName("name");
+        Artwork result = artworkService.findByName("name");
+        Assert.assertEquals(result, artworkMock);
     }
 
     @Test
