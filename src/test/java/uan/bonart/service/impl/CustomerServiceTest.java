@@ -1,5 +1,6 @@
 package uan.bonart.service.impl;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -48,7 +49,8 @@ public class CustomerServiceTest {
 
     @Test
     public void testCreate() throws Exception {
-       customerService.create(customerMock);
+        Customer result = customerService.create(customerMock);
+        Assert.assertEquals(result, customerMock);
     }
 
     @Test
@@ -64,7 +66,8 @@ public class CustomerServiceTest {
     @Test
     public void testUpdate() throws ResourceNotFoundException {
         customerMock.setDocument("123456789");
-        customerService.update(customerMock);
+        Customer result = customerService.update(customerMock);
+        Assert.assertEquals(result, customerMock);
     }
 
     @Test (expected = ResourceNotFoundException.class)
